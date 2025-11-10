@@ -1,0 +1,476 @@
+#envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  background-color: #d9534f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: top 0.6s ease;
+}
+
+.front {
+  position: absolute;
+  width: 0;
+  height: 0;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  /* a little smaller */
+  border-top: 98px solid #d9534f; /* Same romantic red */
+  /* a little larger */
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 140px solid #f5a3a2; /* Soft pinkish red for the pocket */
+  border-right: 140px solid #f5a3a2;
+  border-bottom: 90px solid #ff6f61; /* Lighter romantic red */
+  border-top: 90px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: 2px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  font-family: "Dancing Script", cursive;
+}
+
+.letter:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #ffe6e6; /* Light romantic tone */
+}
+
+.words.line1 {
+  top: 10%;
+  font-size: 0.5rem;
+  width: 20%;
+  height: 7%;
+  font-size: 0.7rem;
+}
+
+.words.line2 {
+  top: 30%;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.words.line3 {
+  top: 50%;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.words.line4 {
+  top: 70%;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-100px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #e60073; /* Deep romantic pink */
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  pointer-events: none;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
+  animation-delay: 0.7s;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@-webkit-keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+body {
+  background-color: #f0e6f6; /* Soft lavender for a romantic, dreamy feel */
+}
+
+.envlope-wrapper {
+  position:relative;
+  height: 420px;
+}
+
+.reset {
+  text-align: center;
+}
+
+.reset button {
+  font-weight: 800;
+  font-style: normal;
+  transition: all 0.1s linear;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: solid 2px #d9534f;
+  border-radius: 4px;
+  color: #d9534f;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 10px;
+  line-height: 1em;
+  text-decoration: none;
+  min-width: 120px;
+  cursor: pointer;
+}
+
+.reset button:hover {
+  background-color: #d9534f;
+  color: #fff;
+}
+/* Center button horizontally, position it slightly above envelope */
+.main-link {
+  position: absolute;
+  top: 30%; /* move button above the envelope */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 20; /* above everything */
+  text-align: center;
+}
+
+/* 💖 Stylish glowing button */
+.go-main {
+  background: linear-gradient(45deg, #ff4d6d, #ff6f91, #ffb3c6);
+  background-size: 200% 200%;
+  color: white;
+  padding: 14px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0 25px rgba(255, 77, 109, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  animation: heartbeat 1.5s infinite, gradientShift 4s ease infinite;
+  transition: all 0.3s ease;
+}
+
+.go-main:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 0 35px rgba(255, 105, 135, 0.9);
+  background-position: right center;
+}
+
+/* 💓 Heartbeat animation */
+@keyframes heartbeat {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  25% { transform: translate(-50%, -50%) scale(1.06); }
+  40% { transform: translate(-50%, -50%) scale(0.98); }
+  60% { transform: translate(-50%, -50%) scale(1.07); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* 🌈 Gradient shimmer animation */
+@keyframes gradientShift {
+  0% { background-position: left top; }
+  50% { background-position: right bottom; }
+  100% { background-position: left top; }
+}
+/* 💜 Background for the entire page */
+/* 💜 Background for the entire page */
+/* 💜 Background for the entire page */
+/* 🤍 Elegant white gradient background */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-size: cover;
+  font-family: "Dancing Script", cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🌈 Smooth animated gradient */
+@keyframes gradientFlow {
+  0% { background-position: left top; }
+  50% { background-position: right bottom; }
+  100% { background-position: left top; }
+}
+
+/* 💖 Navigation bar */
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  background-color: #c79aff;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.navbar,
+.content-box {
+  position: relative;
+  z-index: 10;
+}
+.navbar a {
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: black;
+  transform: scale(1.1);
+}
+
+/* 🌸 Add spacing between navbar and content box */
+.content-box {
+  margin-top: 30px; /* separate from navbar */
+  background-color: white; /* pure white background */
+  border-radius: 20px;
+  width: 60%;
+  max-width: 400px;
+  padding: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+
+  /* ✨ Pop-up animation */
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* 💫 Keyframes for pop-up effect */
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Optional: keep text style consistent */
+.content-box h1 {
+  color: #d9534f;
+  font-size: 2rem;
+}
+
+.carousel-container {
+  perspective: 1000px;          /* 3D effect */
+  width: 90vw;                   /* responsive width */
+  max-width: 400px;
+  height: 90vw;                  /* height matches width */
+  max-height: 400px;
+  overflow: visible;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCarousel 40s linear infinite; /* slower rotation */
+}
+
+.carousel img {
+  position: absolute;
+  width: 20%;                     /* scale relative to container */
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  left: 50%;
+  top: 50%;
+  transform-origin: center center -200px;  /* radius of carousel */
+  transition: transform 0.5s ease;        /* smooth hover effect */
+}
+
+/* Distribute images evenly in circle */
+.carousel img:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+.carousel img:nth-child(2) { transform: rotateY(36deg) translateZ(200px); }
+.carousel img:nth-child(3) { transform: rotateY(72deg) translateZ(200px); }
+.carousel img:nth-child(4) { transform: rotateY(108deg) translateZ(200px); }
+.carousel img:nth-child(5) { transform: rotateY(144deg) translateZ(200px); }
+.carousel img:nth-child(6) { transform: rotateY(180deg) translateZ(200px); }
+.carousel img:nth-child(7) { transform: rotateY(216deg) translateZ(200px); }
+.carousel img:nth-child(8) { transform: rotateY(252deg) translateZ(200px); }
+.carousel img:nth-child(9) { transform: rotateY(288deg) translateZ(200px); }
+.carousel img:nth-child(10){ transform: rotateY(324deg) translateZ(200px); }
+
+/* Rotate the carousel */
+@keyframes rotateCarousel {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-360deg); }
+}
+
+/* Hover effect: enlarge image slightly */
+.carousel img:hover {
+  transform: scale(1.1) translateZ(200px);
+  z-index: 10;
+}
+
+/* Media query for phones */
+@media (max-width: 480px) {
+  .carousel-container {
+    width: 95vw;
+    height: 95vw;
+  }
+  .carousel img {
+    width: 25%;                   /* slightly larger images for small screens */
+    transform-origin: center center -150px;
+  }
+}
